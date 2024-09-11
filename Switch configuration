@@ -1,0 +1,22 @@
+//Switch Configuration in SOHO Network
+
+Switch>en 
+Switch#conf t
+
+Switch(config)#int range Fa0/2-4
+Switch(config)#switchport mode access
+Switch(config)#switchport access vlan 10
+
+Switch(config)#int range Fa0/5-7
+Switch(config)#switchport mode access
+Switch(config)#switchport access vlan 20
+
+Switch(config)#int range Fa0/8-10
+Switch(config)#switchport mode access
+Switch(config)#switchport access vlan 30
+
+Switch(config)#int Fa0/1
+Switch(config)#switchport mode trunk
+
+
+
