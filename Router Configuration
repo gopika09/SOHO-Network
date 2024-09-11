@@ -1,0 +1,34 @@
+//Router Configuration in SOHO Network
+
+Router(config)#interface GigabitEthernet0/0
+Router(config-if)#no shutdown
+Router(config-if)#int gig0/0.10
+Router(config-subif)#enc dot1q 10
+Router(config-subif)#ip add 192.168.1.1 255.255.255.192
+Router(config-subif)#int gig0/0.20
+Router(config-subif)#enc dot1q 20
+Router(config-subif)#ip add 192.168.1.65 255.255.255.192
+Router(config-subif)#int gig0/0.30
+Router(config-subif)#enc dot1q 30
+Router(config-subif)#ip add 192.168.1.129 255.255.255.192       
+
+Router(config)#service dhcp 
+Router(config)#ip dhcp pool Admin-Pool
+Router(dhcp-config)#network 192.168.1.0 255.255.255.192
+Router(dhcp-config)#default-router 192.168.1.1
+Router(dhcp-config)#dns-server 192.168.1.1
+Router(dhcp-config)#domain-name Admin.com
+Router(dhcp-config)#exit
+Router(config)#ip dhcp pool Finance-Pool
+Router(dhcp-config)#network 192.168.1.64 255.255.255.192
+Router(dhcp-config)#domain-name Finance.com
+Router(dhcp-config)#default-router 192.168.1.65
+Router(dhcp-config)#dns-server 192.168.1.65
+Router(dhcp-config)#exit
+Router(config)#ip dhcp pool Reception-Pool
+Router(dhcp-config)#network 192.168.1.128 255.255.255.192
+Router(dhcp-config)#dns-server 192.168.1.129
+Router(dhcp-config)#default-router 192.168.1.129
+Router(dhcp-config)#domain-name Reception.com
+Router(dhcp-config)#exit
+Router(config)#do write       
