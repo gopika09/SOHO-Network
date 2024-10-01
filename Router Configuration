@@ -1,34 +1,50 @@
-//Router Configuration in SOHO Network
+// Router Configuration in SOHO Network
 
+// Configure the GigabitEthernet0/0 interface
 Router(config)#interface GigabitEthernet0/0
-Router(config-if)#no shutdown
-Router(config-if)#int gig0/0.10
-Router(config-subif)#enc dot1q 10
-Router(config-subif)#ip add 192.168.1.1 255.255.255.192
-Router(config-subif)#int gig0/0.20
-Router(config-subif)#enc dot1q 20
-Router(config-subif)#ip add 192.168.1.65 255.255.255.192
-Router(config-subif)#int gig0/0.30
-Router(config-subif)#enc dot1q 30
-Router(config-subif)#ip add 192.168.1.129 255.255.255.192       
+Router(config-if)#no shutdown  // Enable the interface
 
+// Configure subinterface for VLAN 10
+Router(config-if)#int gig0/0.10
+Router(config-subif)#enc dot1q 10  // Set encapsulation for VLAN 10
+Router(config-subif)#ip add 192.168.1.1 255.255.255.192  // Assign IP address for VLAN 10
+
+// Configure subinterface for VLAN 20
+Router(config-subif)#int gig0/0.20
+Router(config-subif)#enc dot1q 20  // Set encapsulation for VLAN 20
+Router(config-subif)#ip add 192.168.1.65 255.255.255.192  // Assign IP address for VLAN 20
+
+// Configure subinterface for VLAN 30
+Router(config-subif)#int gig0/0.30
+Router(config-subif)#enc dot1q 30  // Set encapsulation for VLAN 30
+Router(config-subif)#ip add 192.168.1.129 255.255.255.192  // Assign IP address for VLAN 30       
+
+// Enable DHCP service on the router
 Router(config)#service dhcp 
+
+// Configure DHCP pool for Admin
 Router(config)#ip dhcp pool Admin-Pool
-Router(dhcp-config)#network 192.168.1.0 255.255.255.192
-Router(dhcp-config)#default-router 192.168.1.1
-Router(dhcp-config)#dns-server 192.168.1.1
-Router(dhcp-config)#domain-name Admin.com
-Router(dhcp-config)#exit
+Router(dhcp-config)#network 192.168.1.0 255.255.255.192  // Define network for Admin
+Router(dhcp-config)#default-router 192.168.1.1  // Set default router for DHCP clients
+Router(dhcp-config)#dns-server 192.168.1.1  // Set DNS server for DHCP clients
+Router(dhcp-config)#domain-name Admin.com  // Set domain name for DHCP clients
+Router(dhcp-config)#exit  // Exit DHCP pool configuration
+
+// Configure DHCP pool for Finance
 Router(config)#ip dhcp pool Finance-Pool
-Router(dhcp-config)#network 192.168.1.64 255.255.255.192
-Router(dhcp-config)#domain-name Finance.com
-Router(dhcp-config)#default-router 192.168.1.65
-Router(dhcp-config)#dns-server 192.168.1.65
-Router(dhcp-config)#exit
+Router(dhcp-config)#network 192.168.1.64 255.255.255.192  // Define network for Finance
+Router(dhcp-config)#domain-name Finance.com  // Set domain name for Finance DHCP clients
+Router(dhcp-config)#default-router 192.168.1.65  // Set default router for DHCP clients
+Router(dhcp-config)#dns-server 192.168.1.65  // Set DNS server for Finance DHCP clients
+Router(dhcp-config)#exit  // Exit DHCP pool configuration
+
+// Configure DHCP pool for Reception
 Router(config)#ip dhcp pool Reception-Pool
-Router(dhcp-config)#network 192.168.1.128 255.255.255.192
-Router(dhcp-config)#dns-server 192.168.1.129
-Router(dhcp-config)#default-router 192.168.1.129
-Router(dhcp-config)#domain-name Reception.com
-Router(dhcp-config)#exit
-Router(config)#do write       
+Router(dhcp-config)#network 192.168.1.128 255.255.255.192  // Define network for Reception
+Router(dhcp-config)#dns-server 192.168.1.129  // Set DNS server for Reception DHCP clients
+Router(dhcp-config)#default-router 192.168.1.129  // Set default router for Reception DHCP clients
+Router(dhcp-config)#domain-name Reception.com  // Set domain name for Reception DHCP clients
+Router(dhcp-config)#exit  // Exit DHCP pool configuration
+
+// Save the configuration
+Router(config)#do write  // Write configuration to memory
