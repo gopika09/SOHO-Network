@@ -1,22 +1,32 @@
-//Switch Configuration in SOHO Network
+// Enter privileged EXEC mode
+Switch> enable
 
-Switch>en 
-Switch#conf t
+// Enter global configuration mode
+Switch# configure terminal
 
-Switch(config)#int range Fa0/2-4
-Switch(config)#switchport mode access
-Switch(config)#switchport access vlan 10
+// Configure access ports for VLAN 10 (Admin)
+Switch(config)# interface range Fa0/2-4
+Switch(config-if-range)# switchport mode access  // Set ports to access mode
+Switch(config-if-range)# switchport access vlan 10 // Assign VLAN 10 to these ports
+Switch(config-if-range)# exit // Exit interface range configuration
 
-Switch(config)#int range Fa0/5-7
-Switch(config)#switchport mode access
-Switch(config)#switchport access vlan 20
+// Configure access ports for VLAN 20 (Finance)
+Switch(config)# interface range Fa0/5-7
+Switch(config-if-range)# switchport mode access  // Set ports to access mode
+Switch(config-if-range)# switchport access vlan 20 // Assign VLAN 20 to these ports
+Switch(config-if-range)# exit // Exit interface range configuration
 
-Switch(config)#int range Fa0/8-10
-Switch(config)#switchport mode access
-Switch(config)#switchport access vlan 30
+// Configure access ports for VLAN 30 (Reception)
+Switch(config)# interface range Fa0/8-10
+Switch(config-if-range)# switchport mode access  // Set ports to access mode
+Switch(config-if-range)# switchport access vlan 30 // Assign VLAN 30 to these ports
+Switch(config-if-range)# exit // Exit interface range configuration
 
-Switch(config)#int Fa0/1
-Switch(config)#switchport mode trunk
+// Configure trunk port for connecting to the router
+Switch(config)# interface Fa0/1
+Switch(config-if)# switchport mode trunk // Set port to trunk mode
+Switch(config-if)# exit // Exit interface configuration
 
-
-
+// Save the configuration
+Switch(config)# end
+Switch# write memory // Save configuration to startup configuration
