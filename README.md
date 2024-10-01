@@ -4,6 +4,9 @@ The Small Office/Home Office (SOHO) Network Implementation project aims to desig
 infrastructure for a simulated organization. This project focuses on segmenting the network using Virtual LANs (VLANs) to enhance 
 performance, security, and management.
 
+## Overview :
+![diagram](https://github.com/gopika09/SOHO-Network/blob/main/SOHO%20diagram.png)
+
 ## Tools and Technologies
 
 - **Cisco Packet Tracer**: Used for simulation and visualization of the network setup.
