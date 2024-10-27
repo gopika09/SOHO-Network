@@ -7,7 +7,7 @@ performance, security, and management.
 ## Overview :
 ![diagram](https://github.com/gopika09/SOHO-Network/blob/main/SOHO%20diagram.png)
 
-##Features 
+## Features 
 - ​**Efficient IP Addressing and Subnetting**: Designed to optimize network performance and minimize IP waste by carefully planning IP address allocation and subnetting strategies.
 - **Inter-VLAN Routing**: Configured to allow seamless communication between different VLANs, enabling secure and efficient data transfer between departments or network segments.
 - **VLAN Segmentation**: Divides the network into multiple VLANs, improving network security and reducing broadcast traffic within the network.
