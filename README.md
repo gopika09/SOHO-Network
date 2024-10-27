@@ -9,10 +9,10 @@ performance, security, and management.
 
 ##Features 
 - ​**Efficient IP Addressing and Subnetting**: Designed to optimize network performance and minimize IP waste by carefully planning IP address allocation and subnetting strategies.
--**Inter-VLAN Routing**: Configured to allow seamless communication between different VLANs, enabling secure and efficient data transfer between departments or network segments.
--**VLAN Segmentation**: Divides the network into multiple VLANs, improving network security and reducing broadcast traffic within the network.
--**Network Scalability**: Easily scalable, allowing for the addition of new VLANs or devices as the organization grows, without the need for major changes to the infrastructure.
--**Cisco Packet Tracer Simulation**: The network was designed and implemented in Cisco Packet Tracer, providing a virtual environment to simulate real-world network scenarios and configurations
+- **Inter-VLAN Routing**: Configured to allow seamless communication between different VLANs, enabling secure and efficient data transfer between departments or network segments.
+- **VLAN Segmentation**: Divides the network into multiple VLANs, improving network security and reducing broadcast traffic within the network.
+- **Network Scalability**: Easily scalable, allowing for the addition of new VLANs or devices as the organization grows, without the need for major changes to the infrastructure.
+- **Cisco Packet Tracer Simulation**: The network was designed and implemented in Cisco Packet Tracer, providing a virtual environment to simulate real-world network scenarios and configurations
 
 ## Tools and Technologies
 
